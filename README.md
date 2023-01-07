@@ -1,5 +1,5 @@
 # View My Website
-[Go to site](https://relaxed-madeleine-a20e9c.netlify.app/)
+[Go to site](https://buddycodz.netlify.app/)
 
 # Getting Started with Create React App
 
