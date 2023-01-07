@@ -15,9 +15,7 @@ const LearnCode = (props) => {
             height="310"
             src="https://www.youtube.com/embed/vOsdfRbrNdk"
             title="Coding: By a kid, for kids | Krish Mehra | TEDxKentState"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
           ></iframe>
         </div>
       </div>

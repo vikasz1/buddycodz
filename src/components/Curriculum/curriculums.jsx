@@ -35,7 +35,7 @@ const Curriculums = () => {
         <Row>
           {curriculumdata.map((item) => {
             return (
-              <Col lg="4" md="6" sm="6">
+              <Col lg="4" md="6" sm="6" key={item.id}>
                 <CurriculumCard key={item.id} data={item} />;
               </Col>
             );
