@@ -1,7 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const API = process.env.REACT_APP_API_KEY;
+// const API="http://localhost:5000/api/data"
 const RegsitrationForm = () => {
   let name, value;
   // const history = useHistory();
@@ -39,36 +42,21 @@ const RegsitrationForm = () => {
       qualification,
       hasLaptop,
     } = user;
-    window.alert(
-      `${email} ${studentName} ${parentName} ${phone}: ${message} ${qualification} ${hasLaptop}`
-    );
 
-    //     const res = await fetch("http://localhost:8000/register", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({
-    //         email,
-    //         parentName,
-    //         studentName,
-    //         phone,
-    //         message,
-    //         qualification,
-    //         hasLaptop,
-    //       }),
-    //     });
-
-    //     const data = await res.json();
-    //     if (data.status === 422 || !data) {
-    //       window.alert("Invalid registration");
-    //       console.log("Invalid registration");
-    //     } else {
-    //       window.alert("Successful registration");
-    //       console.log("Successful registration");
-
-    //       // history.push("/login");
-    //     }
+    axios
+      .post(API, user)
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("User saved successfully.");
+          alert("Success");
+        } else {
+          console.error("Error saving user.");
+          alert("Failure");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (

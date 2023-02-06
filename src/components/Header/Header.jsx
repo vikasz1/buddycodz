@@ -25,11 +25,10 @@ const navLinks = [
 
 const Header = () => {
   const menuRef = useRef();
-
   const menuToggle = () => menuRef.current.classList.toggle("active__menu");
 
   return (
-    <header className="header" >
+    <header className="header">
       <Container>
         <div className="navigation d-flex align-items-center justify-content-between">
           <div className="logo">
@@ -51,7 +50,9 @@ const Header = () => {
             </div>
 
             <div className="nav__right">
-              <a className="btn-sm btn btn-primary ml-3" href="/trail">Book free Trial class</a>
+              <a className="btn-sm btn btn-primary ml-3" href="/trail">
+                Book free Trial class
+              </a>
             </div>
           </div>
 
