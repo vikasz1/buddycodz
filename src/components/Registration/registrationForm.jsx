@@ -10,7 +10,6 @@ const API = process.env.REACT_APP_API_KEY;
 // const API = "http://localhost:5000/api/data";
 const RegsitrationForm = () => {
   let name, value;
-  // const history = useHistory();
 
   const [user, setUser] = useState({
     email: "",
@@ -46,26 +45,39 @@ const RegsitrationForm = () => {
       hasLaptop,
     } = user;
 
-    axios
-      .post(API, user)
-      .then((response) => {
-        if (response.status === 200) {
-          console.log("User saved successfully.");
-          toast.success("Success");
-        } else {
-          console.log("Error saving user.");
-          toast.success("Failed");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error(error.response.data);
-      });
+    function posting() {
+      const myToast = toast.loading("Please Wait...");
+      axios
+        .post(API, user)
+        .then((response) => {
+          if (response.status === 200) {
+            toast.update(myToast, {
+              render: "Thanks for booking a demo. We will contact you soon.",
+              type: "success",
+              isLoading: false,
+              autoClose: 2500,
+            });
+            console.log("User saved successfully.");
+          } else {
+            console.log("Error saving user.");
+            toast.error("Failed");
+          }
+        })
+        .catch((error) => {
+          toast.update(myToast, {
+            render: error.response.data,
+            type: "error",
+            isLoading: false,
+            autoClose: 3000,
+          });
+          console.log(error);
+        });
+    }
+    posting();
   };
 
   return (
     <>
-      <ToastContainer />
       <section id="register-class">
         <form className="mb-5 mt-3">
           <div className="text-center">
