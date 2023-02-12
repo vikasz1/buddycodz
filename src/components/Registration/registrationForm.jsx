@@ -58,7 +58,7 @@ const RegsitrationForm = () => {
         }
       })
       .catch((error) => {
-        console.log(error.response.data);
+        console.log(error);
         toast.error(error.response.data);
       });
   };
