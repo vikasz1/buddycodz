@@ -66,9 +66,9 @@ const RegsitrationForm = () => {
               render: "Thanks for booking a demo. We will contact you soon.",
               type: "success",
               isLoading: false,
-              autoClose: 2500,
+              autoClose: 4000,
             });
-            clearForm();
+            // clearForm();
             console.log("User saved successfully.");
           } else {
             console.log("Error saving user.");

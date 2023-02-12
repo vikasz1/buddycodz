@@ -17,7 +17,7 @@ function App() {
       <HeroSection />
       <Courses />
       <LearnCode />
-      <ToastContainer autoClose={4000} draggable/>
+      <ToastContainer autoClose={6000}/>
       <RegistrationForm />
       <Curriculums />
       <Footer />

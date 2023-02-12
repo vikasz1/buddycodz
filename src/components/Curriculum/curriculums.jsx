@@ -11,7 +11,7 @@ const Curriculums = () => {
       image: curr1,
       title: "Block Based Programming",
       description:
-        "These are the stepping stones for your kid who start their journey into the world of coding! We help them make games, applications,animations and a lot more! \n Suitable for kids from who are just starting to learn coding!",
+        "These are the stepping stones for your kid who start their journey into the world of coding! We help them make games, applications, animations and a lot more! \n Suitable for kids from who are just starting to learn coding!",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const Curriculums = () => {
     {
       id: 3,
       image: curr3,
-      title: "3D Desining and STEM",
+      title: "3D Designing and STEM",
       description:
         "It includes the conecpts of building 3D designs that can be easily printed out into a 3D object! Also they will be learning about designing circuties and STEM Concepts!",
     },
@@ -36,7 +36,7 @@ const Curriculums = () => {
           {curriculumdata.map((item) => {
             return (
               <Col lg="4" md="6" sm="6" key={item.id}>
-                <CurriculumCard key={item.id} data={item} />;
+                <CurriculumCard key={item.id} data={item} />  
               </Col>
             );
           })}

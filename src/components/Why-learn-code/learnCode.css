@@ -1,0 +1,6 @@
+@media screen and (max-width: 700px) {
+  #video {
+    width: auto;
+    margin-right: 0px;
+  }
+}
