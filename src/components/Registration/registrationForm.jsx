@@ -5,8 +5,8 @@ import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-const API = process.env.REACT_APP_API_KEY;
 import "./registrationForm.css";
+const API = process.env.REACT_APP_API_KEY;
 // const API = "http://localhost:5000/api/data";
 const RegsitrationForm = () => {
   let name, value;
