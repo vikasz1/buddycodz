@@ -52,7 +52,7 @@ const Footer = () => {
         <Row>
           <Col lg="3" md="6" className="mb-4">
             <h2 className=" d-flex align-items-center gap-1">
-              <i class="ri-pantone-line"></i> BuddyCodz.
+              <i className="ri-pantone-line"></i> BuddyCodz.
             </h2>
 
             <div className="follows">
@@ -60,28 +60,28 @@ const Footer = () => {
               <span>
                 {" "}
                 <a href="https://www.facebook.com">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i className="fa fa-facebook" aria-hidden="true"></i>
                 </a>
               </span>
 
               <span>
                 {" "}
                 <a href="facebook.com">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <i className="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </span>
 
               <span>
                 {" "}
                 <a href="facebook.com">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <i className="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
               </span>
 
               <span>
                 {" "}
                 <a href="facebook.com">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i className="fa fa-twitter" aria-hidden="true"></i>
                 </a>
               </span>
             </div>

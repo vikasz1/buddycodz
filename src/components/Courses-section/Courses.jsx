@@ -40,7 +40,7 @@ const coursesData = [
 
 const Courses = () => {
   return (
-    <section>
+    <section id="course-section">
       <Container>
         <Row className="mb-2">
           <Col lg={180} className="mb-3">

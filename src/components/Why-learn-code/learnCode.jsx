@@ -20,7 +20,7 @@ const LearnCode = (props) => {
         </div>
       </div>
       <div className="text-center">
-        <a className="w-25 btn btn-primary ml-3" href="/trail">
+        <a className="w-25 btn btn-primary ml-3" href="#register-class">
           Book free Trial
         </a>
       </div>

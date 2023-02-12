@@ -18,7 +18,7 @@ const CurriculumCard = (props) => {
         <div className=" d-flex justify-content-between align-items-center">
 
           <p className="enroll d-flex align-items-center gap-1">
-            <a href="#" className='btn btn-primary'> Book Free Trial</a>
+            <a href="#register-class" className='btn btn-primary'> Book Free Trial</a>
           </p>
         </div>
       </div>

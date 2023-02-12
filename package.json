@@ -10,8 +10,10 @@
     "bootstrap": "^4.6.2",
     "font-awesome": "^4.7.0",
     "react": "^18.2.0",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.5",
     "web-vitals": "^2.1.4"
   },

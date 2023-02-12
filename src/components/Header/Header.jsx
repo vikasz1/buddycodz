@@ -5,7 +5,7 @@ import "./header.css";
 const navLinks = [
   {
     display: "Home",
-    url: "/",
+    url: "#course-section",
   },
   {
     display: "About",
@@ -50,7 +50,7 @@ const Header = () => {
             </div>
 
             <div className="nav__right">
-              <a className="btn-sm btn btn-primary ml-3" href="/trail">
+              <a className="btn-sm btn btn-primary ml-3" href="#register-class">
                 Book free Trial class
               </a>
             </div>
