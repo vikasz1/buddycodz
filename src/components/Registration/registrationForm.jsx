@@ -31,6 +31,17 @@ const RegsitrationForm = () => {
     console.log(data.name);
     console.log(data.value);
   };
+  function clearForm() {
+    setUser({
+      email: "",
+      parentName: "",
+      studentName: "",
+      phone: "",
+      message: "",
+      qualification: "",
+      hasLaptop: "",
+    });
+  }
 
   const PostData = async (e) => {
     e.preventDefault();
@@ -57,6 +68,7 @@ const RegsitrationForm = () => {
               isLoading: false,
               autoClose: 2500,
             });
+            clearForm();
             console.log("User saved successfully.");
           } else {
             console.log("Error saving user.");
