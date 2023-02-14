@@ -68,7 +68,7 @@ const RegsitrationForm = () => {
               isLoading: false,
               autoClose: 4000,
             });
-            // clearForm();
+            clearForm();
             console.log("User saved successfully.");
           } else {
             console.log("Error saving user.");
@@ -77,7 +77,7 @@ const RegsitrationForm = () => {
         })
         .catch((error) => {
           toast.update(myToast, {
-            render: error.response.data,
+            render: "Please fill form correctly",
             type: "error",
             isLoading: false,
             autoClose: 3000,
