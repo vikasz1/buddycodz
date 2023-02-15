@@ -77,7 +77,7 @@ const RegsitrationForm = () => {
         })
         .catch((error) => {
           toast.update(myToast, {
-            render: "Please fill form correctly",
+            render: error.response.data,
             type: "error",
             isLoading: false,
             autoClose: 3000,
