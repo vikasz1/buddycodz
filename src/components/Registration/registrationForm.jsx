@@ -76,8 +76,17 @@ const RegsitrationForm = () => {
           }
         })
         .catch((error) => {
+          console.log(API);
+          const message = error.response
+            ? error.response.data
+              ? error.response.data
+              : "Never Happened before"
+            : error.message === "Network Error"
+            ? "Can't connect to Backend"
+            : "";
+          console.log(message);
           toast.update(myToast, {
-            render: error.response.data,
+            render: message,
             type: "error",
             isLoading: false,
             autoClose: 3000,
