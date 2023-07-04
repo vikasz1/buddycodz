@@ -1,0 +1,40 @@
+.blog-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  .blog-posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+  }
+  
+  .blog-post {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-post h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+  }
+  
+  .blog-post p {
+    line-height: 1.6;
+  }
+  
+  .blog-post em {
+    font-style: italic;
+    color: #888;
+  }
+  
+  .blog-post p:last-child {
+    margin-bottom: 0;
+  }
+  

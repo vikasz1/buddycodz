@@ -1,27 +1,21 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
-import HeroSection from "./components/Hero-Section/HeroSection";
-import Courses from "./components/Courses-section/Courses";
-import LearnCode from "./components/Why-learn-code/learnCode";
-import RegistrationForm from "./components/Registration/registrationForm";
-import Curriculums from "./components/Curriculum/curriculums";
-import Footer from "./components/Footer/Footer";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import MasterComponent from "./components/MasterComponent/masterComponent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Blog from "./components/Blog/blog";
+import NotFound from "./components/Notfound/notFound";
 
 function App() {
   return (
-    <>
-      <Header />
-      <HeroSection />
-      <Courses />
-      <LearnCode />
-      <ToastContainer autoClose={6000}/>
-      <RegistrationForm />
-      <Curriculums />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Header /> 
+      <Routes>
+        <Route index element={<MasterComponent />} />
+        <Route path="/blog" element={<Blog/>}/>
+        <Route path="*" element={<NotFound/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
