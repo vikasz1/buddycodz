@@ -1,16 +1,15 @@
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import "./registrationForm.css";
-const API = process.env.REACT_APP_API_KEY;
+const API = process.env.REACT_APP_API_KEY;  
 // const API = "http://localhost:5000/api/data";
 const RegsitrationForm = () => {
   let name, value;
-
+ 
   const [user, setUser] = useState({
     email: "",
     parentName: "",
@@ -46,21 +45,12 @@ const RegsitrationForm = () => {
   const PostData = async (e) => {
     e.preventDefault();
 
-    const {
-      email,
-      parentName,
-      studentName,
-      phone,
-      message,
-      qualification,
-      hasLaptop,
-    } = user;
-
-    function posting() {
+    function posting() { 
       const myToast = toast.loading("Please Wait...");
       axios
         .post(API, user)
         .then((response) => {
+          console.log(API)
           if (response.status === 200) {
             toast.update(myToast, {
               render: "Thanks for booking a demo. We will contact you soon.",
@@ -75,7 +65,7 @@ const RegsitrationForm = () => {
             toast.error("Failed");
           }
         })
-        .catch((error) => {
+        .catch((error) => { 
           console.log(API);
           const message = error.response
             ? error.response.data

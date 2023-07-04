@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
 import { Container } from "reactstrap";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   {
     display: "Home",
-    url: "#course-section",
+    url: "/",
   },
   {
     display: "About",
@@ -43,14 +44,14 @@ const Header = () => {
               <ul className="nav__list">
                 {navLinks.map((item, index) => (
                   <li key={index} className="nav__item">
-                    <a href={item.url}>{item.display}</a>
+                    <Link to={item.url}>{item.display}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div className="nav__right">
-              <a className="btn-sm btn btn-primary ml-3" href="#register-class">
+              <a className="btn-sm btn btn-primary ml-3" href="/#register-class">
                 Book free Trial class
               </a>
             </div>
