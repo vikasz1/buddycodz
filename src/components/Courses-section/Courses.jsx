@@ -47,10 +47,8 @@ const Courses = () => {
             <div className="course__top d-flex justify-content-between align-items-center">
               <div className="course__top__left w-100">
                 <h2 className="btn-primary p-3 text-center">Our Popular Courses</h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                  consequatur libero quod voluptatibus ullam quia quas, vitae
-                  voluptatem recusandae reprehenderit!
+                <p className="p-4 lead">
+                Unlock your child's potential with our engaging courses! <br/><br/>Here your child will embark on a journey to discover the world of programming, enabling them to craft their very own apps, games, and websites. With 20 comprehensive lessons, this course equips them with valuable skills for the future. Join the 2K+ enthusiastic learners who have already enrolled and dive into the exciting realm of coding. 
                 </p>
               </div>
             </div>

@@ -1,49 +1,7 @@
 import React from "react";
-import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 
 import "./footer.css";
-
-const footerQuickLinks = [
-  {
-    display: "Home",
-    url: "#",
-  },
-  {
-    display: "About US",
-    url: "#",
-  },
-
-  {
-    display: "Courses",
-    url: "#",
-  },
-
-  {
-    display: "Blog",
-    url: "#",
-  },
-];
-
-const footerInfoLinks = [
-  {
-    display: "Privacy Policy",
-    url: "#",
-  },
-  {
-    display: "Membership",
-    url: "#",
-  },
-
-  {
-    display: "Purchases Guide",
-    url: "#",
-  },
-
-  {
-    display: "Terms of Service",
-    url: "#",
-  },
-];
 
 const Footer = () => {
   return (

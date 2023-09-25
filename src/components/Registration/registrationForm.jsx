@@ -5,11 +5,11 @@ import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./registrationForm.css";
-const API = process.env.REACT_APP_API_KEY;  
-// const API = "http://localhost:5000/api/data";
+const API = process.env.REACT_APP_API_KEY;
+
 const RegsitrationForm = () => {
   let name, value;
- 
+
   const [user, setUser] = useState({
     email: "",
     parentName: "",
@@ -45,12 +45,12 @@ const RegsitrationForm = () => {
   const PostData = async (e) => {
     e.preventDefault();
 
-    function posting() { 
-      const myToast = toast.loading("Please Wait...");
+    function posting() {
+      const myToast = toast.loading("Please Wait...\n(It can take a while)");
       axios
         .post(API, user)
         .then((response) => {
-          console.log(API)
+          console.log(API);
           if (response.status === 200) {
             toast.update(myToast, {
               render: "Thanks for booking a demo. We will contact you soon.",
@@ -65,14 +65,14 @@ const RegsitrationForm = () => {
             toast.error("Failed");
           }
         })
-        .catch((error) => { 
+        .catch((error) => {
           console.log(API);
           const message = error.response
             ? error.response.data
               ? error.response.data
               : "Never Happened before"
             : error.message === "Network Error"
-            ? "Can't connect to Backend"
+            ? "Can't connect to Backend, Maybe you didn't  started Database API server"
             : "";
           console.log(message);
           toast.update(myToast, {
@@ -139,15 +139,18 @@ const RegsitrationForm = () => {
               <div className="col-sm">
                 <div className="form-group">
                   <label htmlFor="HasLaptop">Do you have Laptop?</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={user.hasLaptop}
-                    name="hasLaptop"
-                    onChange={handleInputs}
-                    id="HasLaptop"
-                    placeholder="Yes/No"
-                  />
+                  <select
+                  class="form-control" 
+                  id="HasLaptop"
+                  value={user.hasLaptop}
+                  name="hasLaptop"
+                  onChange={handleInputs}
+                  defaultValue="Select"
+                  >
+                    <option value="Select" defaultValue={true}>Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
                 </div>
                 <div className="form-group">
                   <label htmlFor="HighestQualification">
@@ -194,6 +197,7 @@ const RegsitrationForm = () => {
                   <button
                     className="btn btn-primary submitbtn"
                     onClick={PostData}
+                    type="submit"
                   >
                     Submit
                   </button>

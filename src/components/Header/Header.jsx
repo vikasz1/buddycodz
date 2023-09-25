@@ -33,10 +33,11 @@ const Header = () => {
       <Container>
         <div className="navigation d-flex align-items-center justify-content-between">
           <div className="logo">
-            <h2 className=" d-flex align-items-center gap-1">
-              {/* <i class="ri-pantone-line"></i>  */}
-              BuddyCodz.
-            </h2>
+            <Link className="text-decoration-none" to="/">
+              <h1 className=" d-flex align-items-center gap-1">
+            BuddyCodz.
+            </h1>
+            </Link>
           </div>
 
           <div className="nav d-flex align-items-center gap-5">
