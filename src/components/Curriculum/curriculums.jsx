@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
+import CurriculumCard from "./curriculumCard";
 
 const curr1 = "https://res.cloudinary.com/dkvfpxzme/image/upload/v1696515373/buddycodz/tkinter_mohdfs.webp"
 const curr2 = "https://res.cloudinary.com/dkvfpxzme/image/upload/v1696515363/buddycodz/python_dhmgem.webp"
 const curr3 = "https://res.cloudinary.com/dkvfpxzme/image/upload/v1696515372/buddycodz/math_xbwdky.png"
 
-import CurriculumCard from "./curriculumCard";
 const Curriculums = () => {
   const curriculumdata = [
     {
