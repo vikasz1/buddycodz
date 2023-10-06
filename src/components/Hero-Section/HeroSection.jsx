@@ -1,9 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import heroImg from "../Hero-Section/learn-code.png";
-// import heroImg from "../../assests/images/hero-img1.png";
 import "./hero-section.css";
-
+const heroImg = "https://res.cloudinary.com/dkvfpxzme/image/upload/v1696562101/buddycodz/learn-code_jwnaee.png"
 const HeroSection = () => {
   return (
     <section>
