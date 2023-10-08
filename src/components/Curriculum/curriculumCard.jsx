@@ -10,13 +10,13 @@ const CurriculumCard = (props) => {
       </div>
 
       <div className="course__details">
-        <h6 className="course__title mb-4">{title}</h6>
+        <h6 className="course__title mb-4 ">{title}</h6>
         <p>{description}</p>
         <div className=" d-flex justify-content-between align-items-center"></div>
 
         <div className=" d-flex ">
           <p className=" d-flex ">
-            <a href="#register-class" className="btn btn-danger">
+            <a href="#register-class" className="btn btn-primary currim`">
               Book Free Trial
             </a>
           </p>

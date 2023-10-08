@@ -5,3 +5,18 @@
     height: 35rem;
     align-items: center;
 }
+.curriculum__title{
+    font-weight: 700;
+    font-size: larger;
+    color: rgb(217, 207, 207);
+}
+.curriculum-button{
+    color:white;
+    font-size: 4rem;
+    
+}
+.curriculum-button:hover{
+    background-color: white;
+    color:black;
+    scale: 1.1;
+}

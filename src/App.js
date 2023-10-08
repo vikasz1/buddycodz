@@ -5,6 +5,7 @@ import MasterComponent from "./components/MasterComponent/masterComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Blog from "./components/Blog/blog";
 import NotFound from "./components/Notfound/notFound";
+import AboutUs from "./components/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route index element={<MasterComponent />} />
         <Route path="/blog" element={<Blog/>}/>
+        <Route path="/aboutus" element={<AboutUs/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
