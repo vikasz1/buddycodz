@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Blog from "./components/Blog/blog";
 import NotFound from "./components/Notfound/notFound";
 import AboutUs from "./components/AboutUs/AboutUs";
+import Courses from "./components/Courses-section/Courses";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route index element={<MasterComponent />} />
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/aboutus" element={<AboutUs/>}/>
+        <Route path="/courses" element={<Courses/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>

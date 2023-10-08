@@ -205,7 +205,7 @@ const RegsitrationForm = () => {
               </div>
             </div>
           </div>
-          <div className="w-2 btn-primary"></div>
+          
         </form>
       </section>
     </>

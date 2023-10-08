@@ -27,10 +27,10 @@ const CourseCard = ({ item }) => {
           <p className="rating d-flex align-items-center gap-1">
             <i className="ri-star-fill"></i> {rating}K
           </p>
-
-          <p className="enroll d-flex align-items-center gap-1">
-            <a href="#"> Enroll Now</a>
-          </p>
+          <a href="#register-class">
+          <p className="enroll d-flex align-items-center gap-1 btn btn-primary">
+             Enroll Now
+          </p></a>
         </div>
       </div>
     </div>
