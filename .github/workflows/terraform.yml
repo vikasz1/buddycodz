@@ -23,11 +23,12 @@ jobs:
         with:
           terraform_version: 1.7.0
 
-      - name: Azure Login
-        uses: azure/login@v1
+    steps:
+      - name: Azure login
+        uses: azure/login@v2
         with:
-          client-id: ${{ fromJson(secrets.AZURE_CREDENTIALS).appId }}
-          tenant-id: ${{ fromJson(secrets.AZURE_CREDENTIALS).tenant }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Terraform Init
