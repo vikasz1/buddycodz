@@ -30,6 +30,7 @@ jobs:
           client-id: "e14a7964-a03f-4ce2-b8bc-dd7f5df9527d"
           tenant-id: "cb561bac-8eae-4e86-979a-765c514af3ae"
           subscription-id: "59b8512d-88be-476b-bfd3-8118c43006bb"
+          allow-no-subscriptions: true
 
       - name: Terraform Init
         run: |
