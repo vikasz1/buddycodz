@@ -33,3 +33,22 @@ jobs:
           client-id: "00c0869d-66c1-4ae0-911b-acdead400998"
           tenant-id: "cb561bac-8eae-4e86-979a-765c514af3ae"
           subscription-id: "59b8512d-88be-476b-bfd3-8118c43006bb"
+      - name: Terraform Init
+        run: |
+          cd azure-infra/environments/${{ matrix.environment }}
+          terraform init
+
+      - name: Terraform Plan
+        run: |
+          cd azure-infra/environments/${{ matrix.environment }}
+          ENV_UPPER=$(echo "${{ matrix.environment }}" | tr '[:lower:]' '[:upper:]')
+          terraform plan -out=tfplan \
+            -var "resource_group_name=${{ secrets[format('RESOURCE_GROUP_{0}', env.ENV_UPPER)] }}" \
+            -var "location=${{ secrets[format('LOCATION_{0}', env.ENV_UPPER)] }}" \
+            -var "adf_name=${{ secrets[format('ADF_NAME_{0}', env.ENV_UPPER)] }}"
+
+        - name: Terraform Apply
+          if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+          run: |
+            cd azure-infra/environments/${{ matrix.environment }}
+            terraform apply -auto-approve tfplan
