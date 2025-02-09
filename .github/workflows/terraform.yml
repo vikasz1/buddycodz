@@ -33,7 +33,6 @@ jobs:
           cd azure-infra/environments/${{ matrix.environment }}
           terraform init
 
-      # Using dynamic variable names for secrets
       - name: Terraform Plan
         run: |
           cd azure-infra/environments/${{ matrix.environment }}
