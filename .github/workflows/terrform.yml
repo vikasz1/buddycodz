@@ -2,8 +2,7 @@ name: Deploy Azure Data Factory
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "master" ]
   release:
     types: [created]
 
