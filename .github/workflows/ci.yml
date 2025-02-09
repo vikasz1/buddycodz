@@ -19,10 +19,10 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@v3
       with:
-      username: ${{ secrets.DOCKERHUB_USERNAME }}
-      password: ${{ secrets.DOCKERHUB_TOKEN }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
     
     - name: Push to Docker Hub
       run: |
-      docker tag my-image-name:$(date +%s) ${{ secrets.DOCKERHUB_USERNAME }}/buddycodz:latest
-      docker push ${{ secrets.DOCKERHUB_USERNAME }}/buddycodz:latest
+        docker tag my-image-name:$(date +%s) ${{ secrets.DOCKERHUB_USERNAME }}/buddycodz:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/buddycodz:latest
