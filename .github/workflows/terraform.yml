@@ -23,10 +23,21 @@ jobs:
         with:
           terraform_version: 1.7.0
 
+      - name: Parse Azure Credentials
+        id: azure-creds
+        run: |
+          CREDS='${{ secrets.AZURE_CREDENTIALS }}'
+          echo "::add-mask::$(echo $CREDS | jq -r .password)"
+          echo "client_id=$(echo $CREDS | jq -r .appId)" >> $GITHUB_OUTPUT
+          echo "client_secret=$(echo $CREDS | jq -r .password)" >> $GITHUB_OUTPUT
+          echo "tenant_id=$(echo $CREDS | jq -r .tenant)" >> $GITHUB_OUTPUT
+
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: ${{ steps.azure-creds.outputs.client_id }}
+          tenant-id: ${{ steps.azure-creds.outputs.tenant_id }}
+          client-secret: ${{ steps.azure-creds.outputs.client_secret }}
 
       - name: Terraform Init
         run: |
