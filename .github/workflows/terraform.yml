@@ -1,0 +1,50 @@
+name: Deploy Azure Data Factory
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  terraform:
+    name: Deploy ADF
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        environment: [dev, prod]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.7.0
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Terraform Init
+        run: |
+          cd azure-infra/environments/${{ matrix.environment }}
+          terraform init
+
+      # Using dynamic variable names for secrets
+      - name: Terraform Plan
+        run: |
+          cd azure-infra/environments/${{ matrix.environment }}
+          ENV_UPPER=$(echo "${{ matrix.environment }}" | tr '[:lower:]' '[:upper:]')
+          terraform plan -out=tfplan \
+            -var "resource_group_name=${{ secrets[format('RESOURCE_GROUP_{0}', env.ENV_UPPER)] }}" \
+            -var "location=${{ secrets[format('LOCATION_{0}', env.ENV_UPPER)] }}" \
+            -var "adf_name=${{ secrets[format('ADF_NAME_{0}', env.ENV_UPPER)] }}"
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        run: |
+          cd azure-infra/environments/${{ matrix.environment }}
+          terraform apply -auto-approve tfplan
