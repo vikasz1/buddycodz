@@ -11,7 +11,7 @@ function AboutUs() {
           Buddycodz is a leading coding school dedicated to providing top-notch
           coding education for aspiring programmers. Whether you're a complete
           beginner or an experienced coder looking to enhance your skills, we've
-          got you covered.
+          got you covered, Yes Bro.
         </p>
         <p>
           Our mission is to make coding accessible to everyone and empower
