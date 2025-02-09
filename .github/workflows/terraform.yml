@@ -1,4 +1,5 @@
 name: Deploy Azure Data Factory
+
 on:
   push:
     branches: [ "master" ]
@@ -9,15 +10,10 @@ permissions:
   id-token: write
   contents: read
 
-
 jobs:
   terraform:
     name: Deploy ADF
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        environment: [dev, prod]
 
     steps:
       - name: Checkout Code
@@ -27,28 +23,29 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.7.0
+
       - name: Azure login
         uses: azure/login@v2
         with:
           client-id: "00c0869d-66c1-4ae0-911b-acdead400998"
           tenant-id: "cb561bac-8eae-4e86-979a-765c514af3ae"
           subscription-id: "59b8512d-88be-476b-bfd3-8118c43006bb"
+
       - name: Terraform Init
         run: |
-          cd azure-infra/environments/${{ matrix.environment }}
+          cd azure-infra
           terraform init
 
       - name: Terraform Plan
         run: |
-          cd azure-infra/environments/${{ matrix.environment }}
-          ENV_UPPER=$(echo "${{ matrix.environment }}" | tr '[:lower:]' '[:upper:]')
+          cd azure-infra
           terraform plan -out=tfplan \
-            -var "resource_group_name=${{ secrets[format('RESOURCE_GROUP_{0}', env.ENV_UPPER)] }}" \
-            -var "location=${{ secrets[format('LOCATION_{0}', env.ENV_UPPER)] }}" \
-            -var "adf_name=${{ secrets[format('ADF_NAME_{0}', env.ENV_UPPER)] }}"
+            -var "resource_group_name=hardcoded-resource-group" \
+            -var "location=East US" \
+            -var "adf_name=hardcoded-adf"
 
-        - name: Terraform Apply
-          if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-          run: |
-            cd azure-infra/environments/${{ matrix.environment }}
-            terraform apply -auto-approve tfplan
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        run: |
+          cd azure-infra
+          terraform apply -auto-approve tfplan
